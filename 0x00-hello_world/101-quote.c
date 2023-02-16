@@ -1,8 +1,9 @@
 #include <unistd.h>
 
 /**
- * main - prints woooords.
+ * main - prints "and that piece of art" -Dora Korpar, 2015-10-19",
  * followed by an error
+ * Return:Always 1.
  */
 
 int main(void)
