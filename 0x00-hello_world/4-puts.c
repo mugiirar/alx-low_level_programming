@@ -1,7 +1,6 @@
-#include <studio.h>
+#include <stdio.h>
 /**
- * main - Program wrinting a specific line.
- * Return: 0
+ * main - Printing out a line.
  */
 int main(void)
 {
