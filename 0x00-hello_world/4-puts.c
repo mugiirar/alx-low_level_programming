@@ -1,6 +1,7 @@
 #include <stdio.h>
 /**
- * main - Printing out a line.
+ * main - Printing out a line
+ * Return: 0
  */
 int main(void)
 {
