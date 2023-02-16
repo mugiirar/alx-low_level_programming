@@ -1,6 +1,6 @@
 #include <studio.h>
 /**
- * main -Writing a c programme prints a line.
+ * main - Writing a c programme prints a line.
  * Return: 0
  */
 int main(void)
