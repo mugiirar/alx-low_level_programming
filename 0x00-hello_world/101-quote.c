@@ -3,7 +3,7 @@
 /**
  * main - prints woooords.
  * followed by an error
- * Return: 0.
+ * Return: 1.
  */
 
 int main(void)
