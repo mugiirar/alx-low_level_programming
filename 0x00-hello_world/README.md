@@ -1,1 +1,1 @@
-This is a directory for basic c programes.
+Basic c programmes are being created.
