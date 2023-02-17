@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 /**
- * main - Prints a text based on a number
+ * main - Prints a text based on a number == alphabet
  * Return: Letter
  */
 
