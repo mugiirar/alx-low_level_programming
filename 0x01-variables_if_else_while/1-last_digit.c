@@ -4,7 +4,7 @@
 
 /**
  * main - Prints a text based on a number == alphabet
- * Return: Letter
+ * Return: Always
  */
 
 int main(void)
