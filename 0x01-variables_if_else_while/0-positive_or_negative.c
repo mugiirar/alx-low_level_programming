@@ -3,10 +3,12 @@
 #include <stdio.h>
 
 /**
- * main - Finds out if the random number is positive or negative
- * Return: Success
+ * main - This program will assign a random number to the variable n
+ * Return: (0).
  */
+
 int main(void)
+
 {
 	int n;
 
@@ -27,3 +29,4 @@ int main(void)
 	}
 	return (0);
 }
+
