@@ -10,17 +10,17 @@
 int main(void)
 
 {
-	int d, p;
+	int m, n;
 
-	for (d = '0'; d < '9'; d++)
+	for (m = '0'; m < '9'; m++)
 	{
-	for (p = d + 1; p <= '9'; p++)
+	for (n = m + 1; n <= '9'; n++)
 	{
-	if (p != d)
+	if (m != n)
 	{
-	putchar(d);
-	putchar(p);
-	if (d == '8' && p == '9')
+	putchar(m);
+	putchar(n);
+	if (m == '8' && n == '9')
 	continue;
 	putchar(',');
 	putchar(' ');
