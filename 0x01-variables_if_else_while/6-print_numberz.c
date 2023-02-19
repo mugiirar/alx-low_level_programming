@@ -3,18 +3,18 @@
 #include <time.h>
 
 /**
- * main - prints all single digit numbers of base 10 starting from 0
- * Return:  letter
+ * main -  a program that prints all single digit numbers of base 10
+ * Return:0
  */
 
 int main(void)
-
 {
-	int d;
+	int v;
 
-	for (d = '0'; d <= '9'; d++)
-	putchar(d);
+	for (v = 0; v < 10; v++)
+	{
+	putchar(v + '0');
+	}
 	putchar('\n');
-
 	return (0);
 }
