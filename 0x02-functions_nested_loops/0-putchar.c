@@ -2,6 +2,14 @@
 #include <stdlib.h>
 #include <time.h>
 
+/**
+ * main - Printing a word putchar on thy screen
+ *
+ *
+ * Return = 0.  This means that it was printed fine.
+ * On error a message is prompted
+ */
+
 int main(void)
 {
 	putchar('_');
