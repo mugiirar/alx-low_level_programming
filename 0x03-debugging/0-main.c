@@ -2,7 +2,6 @@
 
 /**
  * main - Determines whether a number is positive or negative
- * @i: a given input
  * Return: Always 0.
  */
 int main(void)
