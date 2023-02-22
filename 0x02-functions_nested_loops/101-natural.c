@@ -10,14 +10,14 @@ int main(void)
 {
 	int p, d = 0;
 
-	while (i < 1024)
+	while (p < 1024)
 	{
-	if ((i % 3 == 0) || (i % 5 == 0))
+	if ((p % 3 == 0) || (p % 5 == 0))
 	{
-	z += i;
+	d += p;
 	}
-	i++;
+	p++;
 	}
-	printf("%d\n", z);
+	printf("%d\n", d);
 	return (0);
 }
