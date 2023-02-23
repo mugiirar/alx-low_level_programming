@@ -10,16 +10,13 @@ void more_numbers(void)
 	int count;
 	int p;
 
-	count = 0;
-
-	while (count <= 10)
+	for (count = 0; count <= 10; count++)
 	{
 	for (p = 0; p <= 14; p++)
 	{
-	_putchar(p + '0');
+	putchar(p + '0');
 	}
-	_putchar('\n');
-	count++;
+	putchar('\n');
 	}
-	_putchar('\n');
+	putchar('\n');
 }
