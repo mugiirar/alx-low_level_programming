@@ -21,3 +21,6 @@ void print_square(int size);
 #include <ctype.h>
 
 int _putchar(char c);
+
+void print_triangle(int size);
+
