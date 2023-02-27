@@ -1,41 +1,24 @@
-#include <stdbool.h>
-#include <limits.h>
+/**
+ * _atoi - converts a string to an integer
+ *
+ * @s: string input parameter
+ *
+ * Return: converted integer from string
+*/
 
 int _atoi(char *s)
 {
-	int result = 0;
-	bool is_negative = false;
+	unsigned int num = 0;
+	int sign = 1;
 
-	while (*s == ' ')
-	{
-		s++;
-	}
+	do {
+		if (*s == '-')
+			sign *= -1;
+		else if (*s >= '0' && *s <= '9')
+			num = (num * 10) + (*s - '0');
+		else if (num > 0)
+			break;
+	} while (*s++);
 
-	if (*s == '-')
-	{
-		is_negative = true;
-		s++;
-	}
-	else if (*s == '+')
-	{
-		s++;
-	}
-
-	bool found_digits = false;
-
-	while (*s >= '0' && *s <= '9')
-	{
-		found_digits = true;
-
-		int digit = *s - '0';
-
-		if (result > INT_MAX / 10 || (result == INT_MAX / 10 && digit > INT_MAX % 10))
-		{
-			return (is_negative ? INT_MIN : INT_MAX);
-		}
-
-		result = result * 10 + digit;
-		s++;
-	}
-	return (found_digits ? (is_negative ? -result : result) : 0);
+	return (num * sign);
 }
