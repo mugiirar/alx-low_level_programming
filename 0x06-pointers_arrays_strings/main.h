@@ -9,3 +9,4 @@ char *string_toupper(char *);
 #include <ctype.h>
 char *cap_string(char *);
 char *leet(char *);
+void print_buffer(char *b, int size);
