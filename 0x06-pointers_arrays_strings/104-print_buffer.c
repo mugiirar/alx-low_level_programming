@@ -8,39 +8,48 @@
  * Return: Always 0.
  */
 
+#include <stdio.h>
+#include <ctype.h>
+
 void print_buffer(char *b, int size)
 {
 	int i, j;
-	unsigned char c;
+
+	if (size <= 0)
+	{
+		printf("\n");
+		return;
+	}
 
 	for (i = 0; i < size; i += 10)
 	{
-		printf("%08x ", i);
-		for (j = 0; j < 10 && i + j < size; j++)
+		printf("%08x: ", i);
+
+		for (j = i; j < i + 10; j += 2)
 		{
-			printf("%02x ", (unsigned char)b[i + j]);
-		}
-		for (; j < 10; j++)
-		{
-			printf("   ");
-		}
-		printf(" ");
-		for (j = 0; j < 10 && i + j < size; j++)
-		{
-			c = b[i + j];
-			if (c >= 32 && c <= 126)
-			{
-				printf("%c", c);
-			}
+			if (j < size)
+				printf("%02x", (unsigned char)b[j]);
 			else
-			{
-				printf(".");
-			}
+				printf("  ");
+
+			if (j + 1 < size)
+				printf("%02x ", (unsigned char)b[j + 1]);
+			else
+				printf("   ");
 		}
-		printf("\n");
-	}
-	if (size <= 0)
-	{
+
+		printf(" ");
+
+		for (j = i; j < i + 10; j++)
+		{
+			if (j >= size)
+				printf(" ");
+			else if (isprint(b[j]))
+				printf("%c", b[j]);
+			else
+				printf(".");
+		}
+
 		printf("\n");
 	}
 }
