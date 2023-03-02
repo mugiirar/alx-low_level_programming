@@ -6,40 +6,35 @@
  * @n2: second number
  * @r: buffer for result
  * @size_r: buffer size
- * ahhh! Crazy task! Expand your knowledge
  * Return: address of r or 0
  */
-#include <string.h>
-
-
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
+	int len1 = strlen(n1);
+	int len2 = strlen(n2);
 	int carry = 0;
-	int len1 = strlen(n1), len2 = strlen(n2);
-	int len = len1 > len2 ? len1 : len2;
+	int sum, i, j;
 
-	if (len + 1 > size_r)
-		return (NULL);
-
-	r[len + 1] = '\0';
-
-	while (len1 || len2)
+	if (len1 + len2 >= size_r)
+		return (0);
+	for (i = len1 - 1, j = len2 - 1; i >= 0 || j >= 0 || carry; i--, j--)
 	{
-		int digit1 = len1 ? n1[--len1] - '0' : 0;
-		int digit2 = len2 ? n2[--len2] - '0' : 0;
-		int sum = carry + digit1 + digit2;
-
+		sum = carry;
+		if (i >= 0)
+			sum += n1[i] - '0';
+		if (j >= 0)
+			sum += n2[j] - '0';
 		carry = sum / 10;
-		r[len--] = (sum % 10) + '0';
+		r[len1 + len2 - 1 - (i + j)] = (sum % 10) + '0';
 	}
-
-	if (carry)
+	r[len1 + len2] = '\0';
+	for (i = 0, j = strlen(r) - 1; i < j; i++, j--)
 	{
-		if (len + 1 == 0)
-			return (NULL);
-		r[len--] = carry + '0';
-	}
+		char tmp = r[i];
 
-	return (r + len + 1);
+		r[i] = r[j];
+		r[j] = tmp;
+	}
+	return (r);
 }
 
