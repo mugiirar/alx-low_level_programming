@@ -4,27 +4,24 @@
 /**
  * leet - a function that encodes a string into 1337
  *
- * @str: string input
+ * @s: string input
  *
- * Return: @str
+ * Return: @s
 */
 
-char *leet(char *str)
+char *leet(char *s)
 {
-	char ch[] = "aAeEoOtlL";
-	char leet[] = "4433007711";
-	int x, y;
+	int i, j;
+	char a[] = "aAeEoOtTlL";
+	char b[] = "4433007711";
 
-	for (x = 0; str[x] != '\0'; x++)
+	for (i = 0; *(s + i); i++)
 	{
-		for (y = 0; ch[y] != '\0'; y++)
+		for (j = 0; j <= 9; j++)
 		{
-			if (str[x] == ch[y])
-			{
-				str[x] = leet[y];
-				break;
-			}
+			if (a[j] == s[i])
+				s[i] = b[j];
 		}
 	}
-	return (str);
+	return (s);
 }
