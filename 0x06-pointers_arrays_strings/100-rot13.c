@@ -9,24 +9,20 @@
 
 char *rot13(char *str)
 {
-	char *result = (char *) malloc(sizeof(char) * strlen(str) + 1);
-	int i;
+	int i, j;
+	char a[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char b[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
-	for (i = 0; str[i] != '\0'; i++)
+	for (i = 0; *(str + i); i++)
 	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
+		for (j = 0; j < 52; j++)
 		{
-			result[i] = (((str[i] - 'A') + 13) % 26) + 'A';
-		}
-		else if (str[i] >= 'a' && str[i] <= 'z')
-		{
-			result[i] = (((str[i] - 'a') + 13) % 26) + 'a';
-		}
-		else
-		{
-			result[i] = str[i];
+			if (a[j] == *(str + i))
+			{
+				*(str + i) = b[j];
+				break;
+			}
 		}
 	}
-	result[i] = '\0';
-	return (result);
+	return (str);
 }
