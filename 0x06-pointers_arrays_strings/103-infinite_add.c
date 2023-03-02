@@ -8,33 +8,74 @@
  * @size_r: buffer size
  * Return: address of r or 0
  */
-char *infinite_add(char *n1, char *n2, char *r, int size_r)
+
+void rev_string(char *n)
 {
-	int len1 = strlen(n1);
-	int len2 = strlen(n2);
-	int carry = 0;
-	int sum, i, j;
+	int i = 0;
+	int j = 0;
+	char temp;
 
-	if (len1 + len2 >= size_r)
-		return (0);
-	for (i = len1 - 1, j = len2 - 1; i >= 0 || j >= 0 || carry; i--, j--)
+	while (*(n + 1) != '\0')
 	{
-		sum = carry;
-		if (i >= 0)
-			sum += n1[i] - '0';
-		if (j >= 0)
-			sum += n2[j] - '0';
-		carry = sum / 10;
-		r[len1 + len2 - 1 - (i + j)] = (sum % 10) + '0';
+		i++;
 	}
-	r[len1 + len2] = '\0';
-	for (i = 0, j = strlen(r) - 1; i < j; i++, j--)
-	{
-		char tmp = r[i];
+	i--;
 
-		r[i] = r[j];
-		r[j] = tmp;
+	for (j = 0; j < i; j++, i--)
+	{
+		temp = *(n + j);
+		*(n + j) = *(n +i);
+		*(n +i) = temp;
 	}
-	return (r);
 }
 
+/**
+ * infinite _add - it adds two numbers
+ * @n1: text identifier for digit 1
+ * @n2: text identifier of 2nd numer
+ * @r: pointint to buffer
+ * @size_r: size of buffer
+ * Return: Always char
+ */
+
+char *infinite_add(char *n1, char *n2, char *r, int_size_r)
+{
+	int overflow = 0, i = 0, j = 0, digits = 0;
+	int val1 = 0, val2 = 0, temp_tot = 0;
+
+	while (*(n1 + i) != '\0')
+		i++;
+	while (*(n2 + j) != '\0')
+		j++;
+	i--;
+	j--;
+	if (j >= size_r || i >= size_r)
+		return (0);
+	while (j >= 0 || i >= 0 || overflow == 1)
+	{
+		if (i < 0)
+			val1 = 0;
+		else
+			val1 = *(n1 + i) - '0';
+		if (j < 0)
+			val2 = 0;
+		else
+			val2 = *(n2 + j) - '0';
+		temp_tot = val1 + val2 + overflow;
+		if (temp_tot >= 10)
+			oveflow = 1;
+		else
+			overflow = 0;
+		if (digits >= (size_r - 1))
+			return (0);
+		*(r + digits) = (temp_tot % 10) + '0';
+		digits++;
+		j--;
+		i--;
+	}
+	if (digits == size_r)
+		return (0);
+	*(r + digits) = '\0';
+	rev_string(r);
+	return (r);
+}
