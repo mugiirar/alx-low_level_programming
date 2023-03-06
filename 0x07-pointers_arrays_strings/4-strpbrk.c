@@ -10,5 +10,15 @@
 
 char *_strpbrk(char *s, char *accept)
 {
-	return strpbrk(s, accept);
+	int w, t;
+
+	for (w = 0; *(s + w) != '\0'; w++)
+	{
+		for (t = 0; *(accept + t) != '\0'; t++)
+		{
+			if (*(s + w) == *(accept + t))
+				return (s + w);
+		}
+	}
+	return (NULL);
 }
