@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _strstr - finds the first occurrence of the substring needle
+ * _strpbrk - finds the first occurrence of the substring needle
  * in the string haystack
  * @s: char input
  * @accept: char input
