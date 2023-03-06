@@ -2,31 +2,27 @@
 
 
 /**
- * *_strpbrk - searches a string for bytes
+ * _strstr - finds the first occurance of the substring needle in the haystack
  *
- * @s: string to search
+ * @haystack: string
+ * @needle: substring
  *
- * @accept: contains the bytes to look for
- *
- * Return: pointer to the byte in s that matches one of the bytes
- * or NULL if not is found
+ * Return: pointer to beginning of located substring
+ * else NULL if substring not found
  */
-
-char *_strpbrk(char *s, char *accept)
+char *_strstr(char *haystack, char *needle)
 {
-	int p, k;
+	int i, j;
 
-	for (p = 0; *s != '\0'; p++)
+	for (i = 0; haystack[i] != '\0'; i++)
 	{
-		for (k = 0; accept[j] != '\0'; k++)
+		for (j = 0; needle[j] != '\0'; j++)
 		{
-			if (*s == accept[k])
-			{
-				return (s);
-			}
+			if (haystack[i + j] != needle[j])
+				break;
 		}
-		s++;
+		if (!needle[j])
+			return (&haystack[i]);
 	}
-
 	return (NULL);
 }
