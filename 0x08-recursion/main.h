@@ -8,3 +8,6 @@ int is_prime_number(int n);
 int _putchar(char c);
 #include <string.h>
 int is_palindrome(char *s);
+#include <string.h>
+#include <stdlib.h>
+int wildcmp(char *s1, char *s2);
