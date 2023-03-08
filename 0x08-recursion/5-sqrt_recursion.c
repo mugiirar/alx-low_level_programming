@@ -4,7 +4,7 @@
 /**
  * _root - square root of number
  *
- * @n: number to find square root 
+ * @n: number to find square root
  * @p: tests square root
  *
  * Return: square root of n, else -1
