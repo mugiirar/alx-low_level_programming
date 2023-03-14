@@ -2,33 +2,51 @@
 #include "main.h"
 
 /**
- * _strdup - a function that concatenates two strings.
- * @str: string to duplicate
+ * *str_concat - concatenates strings
  *
- * Return: pointer to the copied string (Success), NULL (Error)
+ * @s1: string to be concatenated
+ *
+ * @s2: other string to concatenate
+ *
+ * Return: pointer to the new string created (Success), or NULL (Error)
  */
-#include <stdlib.h>
-#include <string.h>
 
 char *str_concat(char *s1, char *s2)
 {
-	if (s1 == NULL)
-	{
-		s1 = "";
-	}
-	if (s2 == NULL)
-	{
-		s2 = "";
-	}
-	size_t len1 = strlen(s1);
-	size_t len2 = strlen(s2);
-	char *result = malloc(len1 + len2 + 1);
-	if (result == NULL)
-	{
-		return NULL;
-	}
-	memcpy(result, s1, len1);
-	memcpy(result + len1, s2, len2 + 1);
-	return result;
-}
+	char *p;
+	unsigned int i = 0, j = 0, len1 = 0, len2 = 0;
 
+	while (s1 && s1[len1])
+		len1++;
+	while (s2 && s2[len2])
+		len2++;
+
+	p = malloc(sizeof(char) * (len1 + len2 + 1));
+	if (p == NULL)
+		return (NULL);
+
+	i = 0;
+	j = 0;
+
+	if (s1)
+	{
+		while (i < len1)
+		{
+			p[i] = s1[i];
+			i++;
+		}
+	}
+
+	if (s2)
+	{
+		while (i < (len1 + len2))
+		{
+			p[i] = s2[j];
+			i++;
+			j++;
+		}
+	}
+	p[i] = '\0';
+
+	return (p);
+}
