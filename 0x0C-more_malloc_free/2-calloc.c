@@ -31,7 +31,7 @@ char *_tozero(char *s, char a, unsigned int zas)
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void *p;
+	char *p;
 
 	p = malloc(nmemb * size);
 	if (nmemb == 0 || size == 0)
