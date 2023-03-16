@@ -12,7 +12,8 @@ int *_num(int *s, int n, int m)
 {
 	int k;
 
-	for (k = 0; k < (m - n); k++)
+	k = 0;
+	while (n <= m)
 	{
 		s[k] = n;
 		n++;
@@ -39,6 +40,11 @@ int *array_range(int min, int max)
 
 	max = max + 1;
 	p = malloc((max - min) * sizeof(int));
+
+	if (p == NULL)
+	{
+		return (NULL);
+	}
 	_num(p, min, max);
 
 	return (p);
