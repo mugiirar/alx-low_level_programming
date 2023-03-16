@@ -1,49 +1,46 @@
-#include "main.h"
 #include <stdlib.h>
-
+#include "main.h"
 
 /**
- * *_tozero - fills memory block
- * @s: pointer input
- * @a: character input
- * @zas: integer iput
- * Return: char
+ * *_set - fills memory
+ * @s: memory area to be filled
+ * @b: char
+ * @n: times to copy b
+ *
+ * Return: pointer to the memory area s
  */
-
-char *_tozero(char *s, char a, unsigned int zas)
+char *_set(char *y, char k, unsigned int n)
 {
-	unsigned int k = 0;
+	unsigned int i;
 
-	while (k < zas)
+	for (i = 0; i < n; i++)
 	{
-		s[k] = a;
-		k++;
+		y[i] = k;
 	}
-	return (s);
+
+	return (y);
 }
 
 /**
- * _calloc - function that allocates memory for an array
- * @nmemb: int input
- * @size: int input
- * Return: 0
+ * *_calloc - allocates memory for an array
+ * @nmemb: number of elements in the array
+ * @size: size of each element
+ *
+ * Return: pointer to allocated memory
  */
-
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	char *p;
 
-	p = malloc(nmemb * size);
 	if (nmemb == 0 || size == 0)
-	{
 		return (NULL);
-	}
-	if (p == NULL)
-	{
-		return (NULL);
-	}
 
-	_tozero(p, 0, nmemb * size);
+	p = malloc(size * nmemb);
+
+	if (p == NULL)
+		return (NULL);
+
+	_set(p, 0, nmemb * size);
+
 	return (p);
 }
-
