@@ -3,8 +3,8 @@
 
 /**
  * *_set - fills memory
- * @s: memory area to be filled
- * @b: char
+ * @y: memory area to be filled
+ * @k: char
  * @n: times to copy b
  *
  * Return: pointer to the memory area s
