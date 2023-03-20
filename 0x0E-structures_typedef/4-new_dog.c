@@ -2,7 +2,7 @@
 #include "dog.h"
 
 /**
- * _strlen - length of a string
+ * _len - length of a string
  * @s: string
  *
  * Return: the length
@@ -23,7 +23,7 @@ int _len(char *s)
 }
 
 /**
- * *_strcpy - copies the string
+ * *_cpy - copies the string
  * @dest: pointer to the buffer in which we copy the string
  * @src: string
  *
