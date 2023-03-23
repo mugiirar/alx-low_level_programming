@@ -8,5 +8,6 @@ void print_all(const char * const format, ...);
 int _putchar(char c);
 #include <stdarg.h>
 #include <stdio.h>
+#include <string.h>
 
 #endif
