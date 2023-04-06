@@ -11,15 +11,15 @@ void print_binary(unsigned long int n)
 {
 	int p;
 	int t = 0;
-	unsigned long int current;
+	unsigned long int c;
 
 	p = 63;
 
 	while (p >= 0)
 	{
-		current = n >> p;
+		c = n >> p;
 
-		if (current & 1)
+		if (c & 1)
 		{
 			_putchar('1');
 			t++;
@@ -28,7 +28,7 @@ void print_binary(unsigned long int n)
 			_putchar('0');
 		p--;
 	}
-	if (t == NULL)
+	if (!t)
 	{
 		_putchar('0');
 	}
