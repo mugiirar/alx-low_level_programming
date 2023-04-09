@@ -33,17 +33,13 @@ int main(int argc, const char *argv[])
 
 	fp_t = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
-	if (fp_t < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[1]);
-		exit(99);
-	}
 
 	while ((n = read(fp_f, buffer, BUFF_SIZE)) > 0)
 	{
-		if ((m = write(fp_t, buffer, n)) != n)
+		if ((m = write(fp_t, buffer, n)) != n || fp_t < 0)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			close(fp_t);
 			exit (99);
 		}
 	}
@@ -54,7 +50,7 @@ int main(int argc, const char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fp_f);
 		exit(100);
 	}
-	close(fp_t);
+	y = close(fp_t);
 	if (y < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fp_t);
