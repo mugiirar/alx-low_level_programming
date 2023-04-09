@@ -29,7 +29,7 @@ int main(int argc, const char *argv[])
 	while ((n = read(fp_f, buffer, BUFF_SIZE)) > 0)
 	{
 		m = write(fp_t, buffer, n);
-		if (m != n)
+		if (m != n || fp_t < 0)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			close(fp_t);
