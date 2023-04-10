@@ -1,17 +1,13 @@
 #include "main.h"
-
 /**
  * main - a program that copies the content of a file to another file
  * @argc: number of args
  * @argv: array of arguments
  * Return: 0 for success or -1 for faliure
  */
-
 int main(int argc, const char *argv[])
 {
-	int fp_f;
-	int fp_t;
-	int n, m, x, y;
+	int fp_f, fp_t, n, m, x, y;
 	char *buffer[BUFF_SIZE];
 
 	if (argc != 3)
@@ -32,7 +28,6 @@ int main(int argc, const char *argv[])
 		if (m != n || fp_t < 0)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			close(fp_t);
 			exit(99);
 		}
 	}
@@ -42,15 +37,13 @@ int main(int argc, const char *argv[])
 		exit(98);
 	}
 	x = close(fp_f);
-	if (x < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fp_f);
-		exit(100);
-	}
 	y = close(fp_t);
-	if (y < 0)
+	if (y < 0 || x < 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fp_t);
+		if (y < 0)
+			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fp_t);
+		if (x < 0)
+			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fp_f);
 		exit(100);
 	}
 	return (0);
