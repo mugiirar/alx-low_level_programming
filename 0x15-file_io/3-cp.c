@@ -36,6 +36,11 @@ int main(int argc, const char *argv[])
 			exit(99);
 		}
 	}
+	if (n < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
 	x = close(fp_f);
 	if (x < 0)
 	{
