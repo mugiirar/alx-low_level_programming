@@ -5,10 +5,11 @@
  * @ht: pointer to table;
  */
 
-void hash_table_delete(hash_table_t* ht)
+void hash_table_delete(hash_table_t *ht)
 {
 	unsigned long int i;
 	hash_node_t *node, *tmp_node;
+
 	if (ht)
 	{
 		for (i = 0; i < ht->size; i++)
