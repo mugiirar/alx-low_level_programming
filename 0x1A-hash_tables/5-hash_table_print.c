@@ -1,21 +1,26 @@
 #include "hash_tables.h"
 
+/**
+ * hash_table_print - print table
+ * @ht: pointer to a table
+ */
+
 void hash_table_print(const hash_table_t *ht)
 {
 	unsigned char comma_needed;
 	unsigned long int i;
 	hash_node_t *current_node;
-	
+
 	if (ht == NULL)
 	{
 		return;
 	}
-	
+
 	printf("{");
 	comma_needed = 0;
-	
+
 	i = 0;
-	while(i < ht->size)
+	while (i < ht->size)
 	{
 		if (ht->array[i] != NULL)
 		{
@@ -28,7 +33,6 @@ void hash_table_print(const hash_table_t *ht)
 			{
 				printf("'%s': '%s'", current_node->key, current_node->value);
 				current_node = current_node->next;
-				
 				if (current_node != NULL)
 				{
 					printf(", ");
